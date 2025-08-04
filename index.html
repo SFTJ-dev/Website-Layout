@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Feya's Likes Coding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap');
+
+    :root {
+      --bg: #fff5d7;
+      --pink: #e195ab;
+      --mint: #b5eadb;
+      --blue: #b8d6ff;
+      --text: #333;
+      --white: #fff;
+      --soft-border: #f4d2df;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--pink);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 3px solid #d1869c;
+    }
+
+    nav {
+      background: var(--mint);
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      background-color: var(--pink);
+      color: white;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .home-intro {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .home-intro h2 {
+      color: var(--pink);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .home-intro p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .about-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .about-box img {
+      width: 200px;
+      height: 200px;
+      border-radius: 100%;
+      object-fit: cover;
+      border: 4px solid var(--pink);
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: var(--mint);
+      color: #000;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      display: inline-block;
+      margin: 5px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .tag:hover {
+      background: var(--pink);
+      color: white;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .post {
+      background: var(--white);
+      border: 2px dashed var(--pink);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post h3 {
+      margin-bottom: 0.5rem;
+      color: var(--pink);
+    }
+
+    .post .meta {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 1rem;
+    }
+
+    .post p {
+      flex-grow: 1;
+      margin-bottom: 1rem;
+    }
+
+    .read-more {
+      align-self: flex-start;
+      background: var(--pink);
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .read-more:hover {
+      background: #cc6f8e;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding-top: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid var(--soft-border);
+      object-fit: cover;
+    }
+
+    .newsletter {
+      background: var(--white);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .newsletter h3 {
+      color: var(--pink);
+      margin-bottom: 1rem;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 0.6rem;
+      width: 70%;
+      max-width: 400px;
+      border: 2px solid var(--soft-border);
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .newsletter button {
+      background: var(--pink);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .sitemap {
+      background: var(--pink);
+      color: white;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .sitemap h4 {
+      margin-bottom: 1rem;
+    }
+
+    .sitemap a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: underline;
+      font-weight: 300;
+    }
+
+    footer {
+      background: #d1869c;
+      text-align: center;
+      color: white;
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .newsletter input[type="email"] {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      .newsletter button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header id="home">
+  <h1>Feya's Likes Coding</h1>
+  <p>Sharing code and aesthetic experiments</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#works">Works</a>
+  <a href="#articles">Articles</a>
+  <a href="#tutorials">Tutorials</a>
+  <a href="#newsletter">Newsletter</a>
+</nav>
+
+<section class="home-intro">
+  <h2>Welcome to My Coding Corner 💻</h2>
+  <p>Hi, I'm Feya! I mix creativity and logic to create soft and sweet web designs. Whether you're new to HTML or you're exploring pastel palettes, I hope you find something inspiring here!</p>
+</section>
+
+<section id="about">
+  <div class="about-box">
+    <img src="https://scontent.fmnl30-1.fna.fbcdn.net/v/t39.30808-6/486573571_122191046300251566_6761829782558102281_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGNPYLwehi5nT3rQMaZqPH10bFIOGjqGNXRsUg4aOoY1TFaM-jNmtAjU2auQ4Lopuu2OxYDChhnI4BW9Qoej3Cg&_nc_ohc=cp7Z5EjvLzsQ7kNvwHUN-eE&_nc_oc=AdkVtj-_4Ml04wqIvu5uX-7CkJcJfr1uXCZ6Bcbg9DDAo2W1EWlnzrnZ5k4UiTBizTQ&_nc_zt=23&_nc_ht=scontent.fmnl30-1.fna&_nc_gid=0hEJ89CM_5iZjOIdT-KNfw&oh=00_AfWdH5OL7UuQOpBIbL33w1nG8CzwVBY-aMH_uIjTBqeKDQ&oe=6895EBB8" alt="Feya">
+    <h2 style="color: var(--pink); margin-bottom: 0.5rem;">Hi! I'm Feya 🌼</h2>
+    <p>I'm a 16-year-old programming student passionate about building pastel-themed sites. I love organizing, designing, and making things work in the cutest way possible. This site is my space to share what I learn and create!</p>
+  </div>
+</section>
+
+<section id="works">
+  <h2 style="text-align:center; color: var(--pink); margin-bottom: 1rem;">📁 Check My Works</h2>
+  <div style="text-align:center;">
+    <a href="#" class="tag">Performance Task 1</a>
+    <a href="#" class="tag">Performance Task 2</a>
+    <a href="#" class="tag">Performance Task 3</a>
+    <a href="#" class="tag">Performance Task 4</a>
+    <a href="#" class="tag">Performance Task 5</a>
+  </div>
+</section>
+
+<section id="articles">
+  <h2 style="text-align:center; color: var(--pink); margin-bottom: 2rem;">📝 Articles</h2>
+  <div class="blog-grid">
+    <div class="post">
+      <h3>Finding My Aesthetic Through CSS</h3>
+      <div class="meta">Posted on Aug 1, 2025 • By Feya</div>
+      <p>I started my design journey by tweaking colors in CSS, and suddenly the code wasn't just code—it was art. I found joy in customizing fonts, spacing, and pastel backgrounds that reflected my personal style.</p>
+      <a href="#" class="read-more">Read more</a>
+    </div>
+    <div class="post">
+      <h3>Why I Prefer Vanilla HTML and CSS</h3>
+      <div class="meta">Posted on July 25, 2025 • By Feya</div>
+      <p>While frameworks are cool, I love the control and clarity I get with plain HTML and CSS. It's also how I learn better—every line feels like a choice I made creatively.</p>
+      <a href="#" class="read-more">Read more</a>
+    </div>
+    <div class="post">
+      <h3>The Challenges of Designing Responsively</h3>
+      <div class="meta">Posted on July 18, 2025 • By Feya</div>
+      <p>Creating a site that works on both mobile and desktop can be tricky. But learning media queries and using flexible grids changed how I design completely. Now I build everything mobile-first!</p>
+      <a href="#" class="read-more">Read more</a>
+    </div>
+  </div>
+</section>
+
+<section id="tutorials">
+  <h2 style="text-align:center; color: var(--pink); margin-bottom: 2rem;">📚 Tutorials</h2>
+  <div class="blog-grid">
+    <div class="post">
+      <h3>HTML Basics for Beginners</h3>
+      <div class="meta">Posted on July 10, 2025 • By Feya</div>
+      <p>Learn how to build your very first webpage! We’ll cover headings, paragraphs, links, images, and how to structure your content semantically.</p>
+      <a href="#" class="read-more">Try the tutorial</a>
+    </div>
+    <div class="post">
+      <h3>Beginner Flexbox Layout</h3>
+      <div class="meta">Posted on July 8, 2025 • By Feya</div>
+      <p>This tutorial walks you through building a responsive layout using Flexbox. You’ll learn how to align items, distribute space, and adapt to different screen sizes.</p>
+      <a href="#" class="read-more">Try the tutorial</a>
+    </div>
+    <div class="post">
+      <h3>Using CSS Variables Effectively</h3>
+      <div class="meta">Posted on July 5, 2025 • By Feya</div>
+      <p>CSS variables help you keep your design consistent and editable. Learn how to define and use them to store colors, font sizes, and spacing values!</p>
+      <a href="#" class="read-more">Try the tutorial</a>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2 style="text-align:center; color: var(--pink); margin-bottom: 2rem;">🌸 Gallery</h2>
+  <div class="gallery">
+    <img src="https://files.catbox.moe/x4goye.jfif" alt="design 1" />
+    <img src="https://files.catbox.moe/x4goye.jfif" alt="design 2" />
+    <img src="https://files.catbox.moe/x4goye.jfif" alt="design 3" />
+  </div>
+</section>
+
+<section class="newsletter" id="newsletter">
+  <h3>📬 Join My Newsletter</h3>
+  <p>Receive pastel design tips, beginner tutorials, and site updates every month!</p>
+  <input type="email" placeholder="Your email address">
+  <button>Subscribe</button>
+</section>
+
+<section class="sitemap">
+  <h4>Site Map</h4>
+  <p>
+    <a href="#home">Home</a> |
+    <a href="#about">About</a> |
+    <a href="#works">Works</a> |
+    <a href="#articles">Articles</a> |
+    <a href="#tutorials">Tutorials</a> |
+    <a href="#gallery">Gallery</a> |
+    <a href="#newsletter">Newsletter</a>
+  </p>
+</section>
+
+<footer>
+  &copy; 2025 Feya · Coded with 🌸 pastel love
+</footer>
+
+</body>
+</html>
