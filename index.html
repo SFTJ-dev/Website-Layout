@@ -212,12 +212,12 @@
       cursor: pointer;
     }
 
-    /* 📌 Site Map */
     .sitemap {
       background: var(--pink);
       color: white;
-      text-align: center;
       padding: 2rem 1rem;
+      margin-top: 4rem;
+      text-align: center;
     }
 
     .sitemap h4 {
@@ -240,31 +240,20 @@
     }
 
     @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        overflow-x: hidden;
-      }
-
-      article.post, aside .widget {
-        min-width: auto;
-      }
-
-      nav {
-        flex-wrap: wrap;
-      }
-
       nav a {
-        margin: 5px;
+        display: block;
+        margin: 0.5rem 0;
       }
 
       .newsletter input[type="email"] {
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
       }
 
       .newsletter button {
         width: 100%;
       }
+    }
   </style>
 </head>
 <body>
@@ -390,4 +379,3 @@
 
 </body>
 </html>
-
